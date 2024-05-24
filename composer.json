@@ -1,11 +1,15 @@
 {
     "name": "boruta/star-rating-bundle",
     "type": "symfony-bundle",
-    "description": "Star Rating Bundle for use with Symfony 6 and 7 using Font Awesome.  This bundle adds the 'rating' form type and rating filter to render ratings. Simple and easy to use. Based of work of `brokoskokoli` and `blackknight467`.",
-    "keywords": ["rating", "star", "bundle", "symfony", "symfony4"],
+    "description": "Star Rating Bundle for use with Symfony 6 or 7 using Font Awesome.  This bundle adds the 'rating' form type and rating filter to render ratings. Simple and easy to use. Based on work of 'brokoskokoli' and 'blackknight467'.",
+    "keywords": ["rating", "star", "bundle", "symfony", "symfony6", "symfony7"],
     "homepage": "https://github.com/borutainfo/StarRatingBundle",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Sebastian Boruta",
+            "email": "sebastian@boruta.info"
+        },
         {
             "name": "Brokoskokoli",
             "email": "brokoskokoli@gmail.com"
@@ -16,10 +20,6 @@
         },
         {
             "name": "Steven Ng"
-        },
-        {
-            "name": "Sebastian Boruta",
-            "email": "sebastian@boruta.info"
         }
     ],
     "require": {
