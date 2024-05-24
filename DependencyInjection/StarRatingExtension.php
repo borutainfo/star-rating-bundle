@@ -1,6 +1,6 @@
 <?php
 
-namespace Brokoskokoli\StarRatingBundle\DependencyInjection;
+namespace Boruta\StarRatingBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -28,7 +28,7 @@ class StarRatingExtension extends Extension
         $loader->load('services.yml');
 
         $resources = $container->getParameter('twig.form.resources');
-        $resources = array_merge(array('@BrokoskokoliStarRatingBundle/rating.html.twig'), $resources);
+        $resources = array_merge(array('@BorutaStarRatingBundle/rating.html.twig'), $resources);
         $container->setParameter('twig.form.resources', $resources);
     }
 }

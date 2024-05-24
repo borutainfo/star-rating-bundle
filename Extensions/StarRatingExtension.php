@@ -1,6 +1,6 @@
 <?php
 
-namespace Brokoskokoli\StarRatingBundle\Extensions;
+namespace Boruta\StarRatingBundle\Extensions;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -28,7 +28,7 @@ class StarRatingExtension extends \Twig_Extension
             $tag = 'span';
         }
         return $this->container->get('twig')->render(
-            '@BrokoskokoliStarRatingBundle/Display/ratingDisplay.html.twig',
+            '@BorutaStarRatingBundle/Display/ratingDisplay.html.twig',
             array(
                 'stars' => $number,
                 'max' => $max,

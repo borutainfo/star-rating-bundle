@@ -1,6 +1,6 @@
 <?php
 
-namespace Brokoskokoli\StarRatingBundle\Form;
+namespace Boruta\StarRatingBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;

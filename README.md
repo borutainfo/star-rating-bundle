@@ -1,15 +1,8 @@
 StarRatingBundle
 ================
 
-This is a fork of the blackknight467 StarRatingBundle and support symfony 4!
+This is a fork of the `blackknight467` and `brokoskokoli` StarRatingBundle and support Symfony 6 and 7!
 
-
-Old  Readme
-===========
-
-Star Rating Bundle for Symfony 3.  Requires Jquery and Font Awesome.
-
-If Using Symfony 2.  Use version 1.*
 
 Sample Output
 =============
@@ -26,7 +19,7 @@ Installation
 Add the following to the "require" section of your `composer.json` file:
 
 ```
-    "blackknight467/star-rating-bundle": "2.*"
+    "boruta/star-rating-bundle": "1.*"
 ```
 
 ### Step 2: Enable the bundle
@@ -41,7 +34,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new blackknight467\StarRatingBundle\StarRatingBundle(),
+        new Boruta\StarRatingBundle\StarRatingBundle(),
     );
 }
 ```
@@ -51,7 +44,7 @@ Add the config for TWIG:
 ```yaml 
 twig:
     paths:
-        '%kernel.project_dir%/vendor/brokoskokoli/star-rating-bundle/Resources/views': BrokoskokoliStarRatingBundle
+        '%kernel.project_dir%/vendor/boruta/star-rating-bundle/Resources/views': BrokoskokoliStarRatingBundle
 ```
 
 ### Step 3: Add the css

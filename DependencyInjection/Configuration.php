@@ -1,6 +1,6 @@
 <?php
 
-namespace Brokoskokoli\StarRatingBundle\DependencyInjection;
+namespace Boruta\StarRatingBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
