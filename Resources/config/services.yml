@@ -10,4 +10,4 @@ services:
         class: Boruta\StarRatingBundle\Extensions\StarRatingExtension
         tags: [{ name: twig.extension }]
         arguments:
-            - '@service_container'
+            - '@twig'
