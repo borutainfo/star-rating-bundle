@@ -2,22 +2,23 @@
 
 namespace Boruta\StarRatingBundle\Extensions;
 
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Twig\Environment;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
-class StarRatingExtension extends \Twig_Extension
+class StarRatingExtension extends AbstractExtension
 {
+    protected Environment $twig;
 
-    protected $container;
-
-    public function __construct(ContainerInterface $container)
+    public function __construct(Environment $twig)
     {
-        $this->container = $container;
+        $this->twig = $twig;
     }
 
     public function getFilters()
     {
         return array(
-            new \Twig_SimpleFilter('rating', array($this, 'rating'), array('is_safe' => array('all'))),
+            new TwigFilter('rating', array($this, 'rating'), array('is_safe' => array('all'))),
         );
     }
 
@@ -27,7 +28,7 @@ class StarRatingExtension extends \Twig_Extension
         if ($inline) {
             $tag = 'span';
         }
-        return $this->container->get('twig')->render(
+        return $this->twig->render(
             '@BorutaStarRatingBundle/Display/ratingDisplay.html.twig',
             array(
                 'stars' => $number,

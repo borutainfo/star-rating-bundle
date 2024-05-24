@@ -1,6 +1,6 @@
 
 {% block star_rating_widget %}
-  {% spaceless %}
+  {% apply spaceless %}
     <div {{ block('star_rating_widget_container_attributes') }}>
       {# type="number" doesn't work with floats #}
       {% set type = type|default('text') %}
@@ -11,11 +11,11 @@
         {% endfor %}
       </div>
     </div>
-  {% endspaceless %}
+  {% endapply %}
 {% endblock star_rating_widget %}
 
 {% block star_rating_widget_container_attributes %}
-{% spaceless %}
+{% apply spaceless %}
     {%- for attrname, attrvalue in attr -%}
         {{- " " -}}
         {%- if attrname in ['placeholder', 'title'] -%}
@@ -26,5 +26,5 @@
             {{- attrname }}="{{ attrvalue }}"
         {%- endif -%}
     {%- endfor -%}
-{% endspaceless %}
+{% endapply %}
 {% endblock star_rating_widget_container_attributes %}

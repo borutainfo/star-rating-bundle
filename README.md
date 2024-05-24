@@ -1,7 +1,7 @@
 StarRatingBundle
 ================
 
-This is a fork of the `blackknight467` and `brokoskokoli` StarRatingBundle and support Symfony 6 and 7!
+This is a fork of the `blackknight467` and `brokoskokoli` StarRatingBundle and support Symfony 7!
 
 
 Sample Output
@@ -28,23 +28,20 @@ Enable the bundle in the kernel:
 
 ```php
 <?php
-// app/appKernel.php
+// config/bundles.php
 
-public function registerBundles()
-{
-    $bundles = array(
-        // ...
-        new Boruta\StarRatingBundle\StarRatingBundle(),
-    );
-}
+return [
+    // ...
+    Boruta\StarRatingBundle\StarRatingBundle::class => ['all' => true],
+];
 ```
 
-Add the config for TWIG:
+Add the Twig config into `config/packages/twig.yaml`:
 
 ```yaml 
 twig:
     paths:
-        '%kernel.project_dir%/vendor/boruta/star-rating-bundle/Resources/views': BrokoskokoliStarRatingBundle
+        '%kernel.project_dir%/vendor/boruta/star-rating-bundle/Resources/views': BorutaStarRatingBundle
 ```
 
 ### Step 3: Add the css
@@ -54,32 +51,16 @@ Add the css in your page head
 ```
   <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
 ```
-or
-```
-	{% stylesheets
-      'bundles/starrating/css/rating.css'
-      filter="cssrewrite" %}
-      <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
-    {% endstylesheets %}
-```
 
 ### Step 4: Add the js
 
 Add the javascript to your page head
 ```
-    <!-- make sure that jquery is included --!>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
 ```
-or
-```
-    <!-- make sure that jquery is included --!>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-	{% javascripts
-      '@StarRatingBundle/Resources/public/js/rating.js' %}
-      <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-```
+
+### Step 5: Add and use Font-awesome (i.e. using npm).
 
 Usage
 =====
@@ -89,7 +70,7 @@ Usage
 ```php
 <?php
     // ...
-    $builder->add('rating', RatingType::class, [
+    $builder->add('rating', StarRatingType::class, [
     	'label' => 'Rating'
     ]);
     // ...
