@@ -1,8 +1,7 @@
 StarRatingBundle
 ================
 
-This is a fork of the `blackknight467` and `brokoskokoli` StarRatingBundle and support Symfony 7!
-
+This is an improved fork of the StarRatingBundle from _blackknight467_ and _brokoskokoli_ modified for support of Symfony 7!
 
 Sample Output
 =============
@@ -16,15 +15,14 @@ Installation
 
 ***Using Composer***
 
-Add the following to the "require" section of your `composer.json` file:
-
-```
-    "boruta/star-rating-bundle": "1.*"
+Install package using Composer:
+```bash
+composer require boruta/star-rating-bundle
 ```
 
 ### Step 2: Enable the bundle
 
-Enable the bundle in the kernel:
+Enable the bundle in your project (this can be done automatically):
 
 ```php
 <?php
@@ -35,6 +33,7 @@ return [
     Boruta\StarRatingBundle\StarRatingBundle::class => ['all' => true],
 ];
 ```
+### Step 3: Config Twig views
 
 Add the Twig config into `config/packages/twig.yaml`:
 
@@ -44,28 +43,33 @@ twig:
         '%kernel.project_dir%/vendor/boruta/star-rating-bundle/Resources/views': BorutaStarRatingBundle
 ```
 
-### Step 3: Add the css
+### Step 4: Add the CSS
 
-Add the css in your page head
+Add the CSS in your page head:
 
 ```
-  <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
 ```
 
-### Step 4: Add the js
+### Step 5: Add the JS
 
-Add the javascript to your page head
+Add the rating script to your page head:
 ```
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
+<script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
+```
+and also JQuery if you don't use it already:
+```
+<script src="https//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 ```
 
-### Step 5: Add and use Font-awesome (i.e. using npm).
+### Step 6: Install Font Awesome
+
+Install Font Awesome (i.e. using [NPM](https://www.npmjs.com/package/font-awesome)).
 
 Usage
 =====
 
-### In a Form
+### In a Symfony Forms
 
 ```php
 <?php
@@ -79,7 +83,7 @@ or for a custom rating scale:
 ```php
 <?php
     // ...
-    $builder->add('rating', RatingType::class, [
+    $builder->add('rating', StarRatingType::class, [
     	//...
     	'stars' => 4,
     	//...
@@ -87,14 +91,12 @@ or for a custom rating scale:
     // ...
 ```
 
-### Display in a twig template using the rating filter
+### Display in a Twig template using the rating filter
 ```
-    // ...
-    {{ someInteger|rating }}
-    // ...
+{{ someInteger|rating }}
 ```
 
-or if you are not using a 5 star scale
+or if you are not using a 5 stars scale
 ```
 {{ someInteger|rating(4) }}
 ```
@@ -103,10 +105,9 @@ if you want to use the [font awesome icon sizes](http://fortawesome.github.io/Fo
 ```
 {{ someInteger|rating(5, "fa-3x") }}
 ```
-If you want the smallest size use "fa-norm" (in font awesome, this would be the same as not providing an size class); providing no size argument sets the font size to 25px which is somewhere in between "fa-lg" and "fa-2x".
+If you want the smallest size use "fa-norm" (in font awesome, this would be the same as not providing a size class); providing no size argument sets the font size to 25px which is somewhere in between "fa-lg" and "fa-2x".
 To customize the size, feel free to override the css.
 
 License
 =======
-This bundle is under the MIT license. See the complete license in the bundle:
-    LICENSE
+This bundle is under the MIT license. See the complete license in the bundle: LICENSE
